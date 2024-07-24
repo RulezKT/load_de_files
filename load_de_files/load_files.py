@@ -60,9 +60,12 @@ def _load_nodes(path: str) -> tuple[tuple[int, str]]:
 # tuple[tuple[int, str] for nodes.json  # [-4733494022,"north"],[-4732252235,"south"]
 def load_files() -> tuple[bytes, tuple[tuple[int, str]]]:
     dir_to_find = __find_dir(FILES_DIR)
+    print("load_files : directory found")
     de_path = os.path.join(dir_to_find, DE_FILE)
     file_in_mem = _load_de(de_path)
+    print("load_files : de file loaded")
     nodes_path = os.path.join(dir_to_find, NODES_FILE)
     nodes_file_data = _load_nodes(nodes_path)
+    print("load_files : nodes file loaded")
 
     return file_in_mem, nodes_file_data
