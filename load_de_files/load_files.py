@@ -10,7 +10,7 @@ class FolderNotFound(Exception):
     pass
 
 
-def __find_dir(files_dir: str) -> str:
+def _find_dir(files_dir: str) -> str:
     # The __file__ var contains the absolute path of the executing script
     current_directory = os.path.dirname(__file__)
 
@@ -60,7 +60,7 @@ def _load_nodes(path: str) -> tuple[tuple[int, str]]:
 # tuple[tuple[int, str] for nodes.json  # [-4733494022,"north"],[-4732252235,"south"]
 def load_files() -> tuple[bytes, tuple[tuple[int, str]]]:
     print("load_files : starting loadinf files")
-    dir_to_find = __find_dir(FILES_DIR)
+    dir_to_find = _find_dir(FILES_DIR)
     print("load_files : directory found")
     de_path = os.path.join(dir_to_find, DE_FILE)
     file_in_mem = _load_de(de_path)
