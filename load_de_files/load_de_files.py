@@ -4,6 +4,7 @@ import os
 FILES_DIR = "files"
 DE_FILE = "de440s.bsp"
 NODES_FILE = "nodes.json"
+CERES_FILE = "ceres_typ21.bsp"
 
 
 class FolderNotFound(Exception):
@@ -69,4 +70,7 @@ def load_files() -> tuple[bytes, tuple[tuple[int, str]]]:
     nodes_file_data = _load_nodes(nodes_path)
     # print("load_files : nodes file loaded")
 
-    return file_in_mem, nodes_file_data
+    ceres_path = os.path.join(dir_to_find, CERES_FILE)
+    ceres_file = _load_de(ceres_path)
+
+    return file_in_mem, nodes_file_data, ceres_file
