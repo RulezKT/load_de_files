@@ -59,7 +59,7 @@ def _load_nodes(path: str) -> tuple[tuple[int, str]]:
 
 # bytes for de440s.bsp,
 # tuple[tuple[int, str] for nodes.json  # [-4733494022,"north"],[-4732252235,"south"]
-def load_files() -> tuple[bytes, tuple[tuple[int, str]]]:
+def load_files() -> tuple[bytes, tuple[tuple[int, str]], bytes]:
     # print("load_files : starting loadinf files")
     dir_to_find = _find_dir(FILES_DIR)
     # print("load_files : directory found")
