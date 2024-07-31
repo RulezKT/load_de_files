@@ -5,6 +5,7 @@ FILES_DIR = "files"
 DE_FILE = "de440s.bsp"
 NODES_FILE = "nodes.json"
 CERES_FILE = "ceres_typ21.bsp"
+CHIRON_FILE = "chiron_typ21.bsp"
 
 
 class FolderNotFound(Exception):
@@ -59,7 +60,7 @@ def _load_nodes(path: str) -> tuple[tuple[int, str]]:
 
 # bytes for de440s.bsp,
 # tuple[tuple[int, str] for nodes.json  # [-4733494022,"north"],[-4732252235,"south"]
-def load_files() -> tuple[bytes, tuple[tuple[int, str]], bytes]:
+def load_files() -> tuple[bytes, tuple[tuple[int, str]], bytes, bytes]:
     # print("load_files : starting loadinf files")
     dir_to_find = _find_dir(FILES_DIR)
     # print("load_files : directory found")
@@ -73,4 +74,7 @@ def load_files() -> tuple[bytes, tuple[tuple[int, str]], bytes]:
     ceres_path = os.path.join(dir_to_find, CERES_FILE)
     ceres_file = _load_de(ceres_path)
 
-    return file_in_mem, nodes_file_data, ceres_file
+    chiron_path = os.path.join(dir_to_find, CHIRON_FILE)
+    chiron_file = _load_de(chiron_path)
+
+    return file_in_mem, nodes_file_data, ceres_file, chiron_file
